@@ -1,0 +1,34 @@
+netsh wlan show profile
+ex : netsh wlan show profile mititcenter key=clear pt mititcenter
+@echo david merge
+@pause
+fisier .bat
+http://www.drogoreanu.ro/tutorials/adresa-ip.php
+https://www.phpnerds.com/article/using-cookies-in-php/?
+mrond2wordprees.com/2014/03/06/create terminal
+https://www.youtube.com/watch?v=tPspjWX8GXw
+https://www.zfilme-online.net/why-him-de-ce-el-2016-filme-online-subtitrat.html
+https://www.youtube.com/watch?v=arqv2YVp_3E // pt logare intro baza de date
+https://www.youtube.com/watch?v=cq_wz116Bbc
+//https://www.youtube.com/watch?v=jNOBDClCxGY//pt logare sesiuni
+https://www.youtube.com/watch?v=I752ofYu7ag  //codi
+https://www.youtube.com/watch?v=Twnds8efEiY
+https://www.youtube.com/watch?v=Ipa9xAs_nTg //lucru in continuare cu pozele upload
+RewriteEngine on
+RewriteCond $1 !^(index\.php|assets|images|js|css|uploads|favicon.png)
+RewriteCond %(REQUEST_FILENAME) !-f
+RewriteCond %(REQUEST_FILENAME) !-d
+RewriteRule ^(.*)$ ./index.php/$1 [L]
+https://www.youtube.com/watch?v=wDLdYrYnOHE //codi in limba dracu stie
+https://www.youtube.com/watch?v=OcZL17LvDUk&list=PLxl69kCRkiI2eALgWF5H5Eka_R1RBmN9N  //merge 
+http://www.math.md/school/distractiva/probleme/probleme.html //didactica distractiva
+http://www.php1984.com/wp-content/uploads/2012/10/Codeigniter-Lectia-10-Sessions-in-CodeIgniter.pdf///codi
+https://www.youtube.com/watch?v=YKyNJqPqM1g
+http://andrei.clubcisco.ro/cursuri/f/f-sym/2ds/curs5.pdf
+https://www.youtube.com/watch?v=wyLVxfReHEc
+https://www.youtube.com/watch?v=kmlX1EwV4VE
+http://www.securitatea-informatiilor.ro/solutii-de-securitate-it/algoritmul-de-criptografie-merkle-hellman/ //cripto
+https://alexandracalinoiu.ro/2016/08/26/cu-ce-te-ajuta-matematica-in-viata/
+https://www.youtube.com/watch?v=nlnvif-xlBs    java scipt
+
+if(session_status()!=PHP_SESSION_ACTIVE) session_start() 
