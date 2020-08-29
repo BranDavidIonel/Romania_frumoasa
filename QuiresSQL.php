@@ -33,7 +33,7 @@ class QuiresSQL {
     } 
     public function insertSql($table,$nume,$descriere,$imagine){
      $this->connect();
-     $sql = "INSERT INTO `$table` (`nume`, `descriere`, `imagine`) VALUES('$nume','$descriere',  '$imagine')";
+     $sql = "INSERT INTO zone_turistice (`nume`, `descriere`, `imagine`) VALUES('$nume','$descriere',  '$imagine')";
     mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
     }
     public function deleteSQl($id){

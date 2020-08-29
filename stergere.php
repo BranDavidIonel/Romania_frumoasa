@@ -1,5 +1,6 @@
 <?php
-if(isset($_SESSION['admin'])){
+//nu se salveaza datele in sesiune
+//if(isset($_SESSION['admin'])){
 if(isset($_GET['id'])){
     require_once 'QuiresSQL.php';
     $id=$_GET['id'];
@@ -10,5 +11,5 @@ if(isset($_GET['id'])){
     $stergere->deleteSQl($id);
     header("Location:admin.php");
     }
-}
+//}
 ?>
