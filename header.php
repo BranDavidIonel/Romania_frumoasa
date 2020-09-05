@@ -25,6 +25,11 @@
       background-color: #C4F8D5;
       height: 100%;
     }
+    div.bodyCentral{
+      background-color: #b3d9ff;
+      //opacity: 0.3;
+
+    }
     
     /* Set black background color, white text and some padding */
     footer {
@@ -37,29 +42,42 @@
 
 <body>
 <nav class="navbar navbar-default" id="navbar1">
+
   <div class="container-fluid">
+  <!--
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+  </nav>
+ 
+  <div class="collapse" id="navbarToggleExternalContent">
+     -->
+ 
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Romania frumoasa</a>
+      <a class="navbar-brand" href="#">Romania frumoasa <span><img alt="Bran David" src="imagini\natureLogo.jpg"  width="30" height="30"/> </span> </a>
+      
     </div>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav ">
       <li> <a href="index.php"> Pagina de start</a></li>
-      <li ><a href="topLocuri.php">Top Locuri</a></li>
+      <li><a href="topLocuri.php">Top Locuri</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Admin</a></li>
+      <li ><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Admin</a></li>
      </ul>
     
       <form method="POST" class="navbar-form navbar-left" action="cauta.php" >
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Cauta" name="Cauta">
       </div>
-      <button type="submit" class="btn btn-default" name="submitCauta">Submit</button>
+      <button type="submit" class="btn btn-default" name="submitCauta">Cauta</button>
     </form>
   </div>
+
 </nav>
 
-        <div class="container-fluid text-center">
-            <button id="button1" onclick="buttonShow()" value="true">Ascunde meniu</button>    
+<div class="container-fluid text-center">
+    <button id="button1" onclick="buttonShow()" value="true">Ascunde meniu</button>  
 
     <div class="row content">
     <div class="col-sm-2 sidenav">
@@ -71,4 +89,4 @@
       </p>
     
     </div>
-    <div class="col-sm-8 text-left"> 
+    <div class="col-sm-8 text-left bodyCentral" bg="#0CB742"> 

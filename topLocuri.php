@@ -13,11 +13,17 @@
                         $nume=$row['nume'];
                         $descriere=$row['descriere'];
                               
-                        $img=$row['imagine'];
+                        $imgs=$row['imagine'];
                         echo'<tr><td style="font-size: 20px;">'.$nume.'</td></tr>
                              <tr><td style="color: #21a51e;font-size: 15px;text-align: left;">'.$descriere.'</td></tr>
-                             <tr><td><img src="./imagini/'.$img.'" width="200px"/></td></tr>
-                                    '; 
+                           
+                                    ';
+                         $imagesSplit= explode(',', $imgs);
+                         //echo '<tr>';   <tr><td><img src="./imagini/'.$img.'" width="200px"/></td></tr>
+                         foreach ($imagesSplit as $image) { 
+                              echo '<tr> <td><img src="./imagini/'.$image.'" width="400px"/><td></tr>';
+                         }
+                        // echo '  </tr>';
                     }
                     echo '</table>';
                     echo '<br>';
