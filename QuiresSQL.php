@@ -48,6 +48,13 @@ class QuiresSQL {
          $row= mysqli_fetch_array($result);
          return $row;
     }
+    public function selectDetalii_id_SQl($idParinte){
+        $this->connect();
+        $sql="SELECT * FROM `detalii_zone_turistice` WHERE `idParinte`=$idParinte";
+        $result = mysqli_query($this->con, $sql);
+         $row= mysqli_fetch_object($result);
+         return $row;
+    }
     public function updateSQL($nume,$descriere,$imagine,$id){
         $this->connect();
        $sql="UPDATE zone_turistice SET nume='$nume',descriere='$descriere',imagine='$imagine' WHERE id='$id'";

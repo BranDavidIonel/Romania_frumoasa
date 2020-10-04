@@ -14,6 +14,7 @@
                         $descriere=$row['descriere'];
                               
                         $imgs=$row['imagine'];
+
                         echo'<tr><td style="font-size: 20px;">'.$nume.'</td></tr>
                              <tr><td style="color: #21a51e;font-size: 15px;text-align: left;">'.$descriere.'</td></tr>
                            
@@ -23,6 +24,7 @@
                          foreach ($imagesSplit as $image) { 
                               echo '<tr> <td><img src="./imagini/'.$image.'" width="400px"/><td></tr>';
                          }
+                         echo '<tr><td><button data-toggle="modal" data-target="#myModal" id="'.$id.'" onclick="showDetails(this)"> Detalii</button> </td></tr>';
                         // echo '  </tr>';
                     }
                     echo '</table>';
