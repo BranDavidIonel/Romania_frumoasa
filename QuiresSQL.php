@@ -10,6 +10,8 @@ class QuiresSQL {
     private $nume="";
     private $descriere="";
     private $imagine="";
+    private  $rowsperpage=2;
+    private $page=0;
      function __construct(){
         $this->host="localhost";
         ////000webhost
@@ -19,6 +21,7 @@ class QuiresSQL {
         //$this->passwordDB="brandavid12";
         $this->passwordDB=""; 
         $this->nameDb="romania_frumoasa";
+        //$this->$rowsperpage=2;
     }
 //    function __construct($host,$username,$password,$nameDb){
 //        $this->host=$host;
@@ -54,6 +57,23 @@ class QuiresSQL {
         $result = mysqli_query($this->con, $sql);
          $row= mysqli_fetch_object($result);
          return $row;
+    }
+    //pagination
+    public function selectPage($page){
+        $this->connect();
+        $rows=2;
+        $sql="SELECT * FROM `zone_turistice` limit ".$page.",".$rows;
+        $result = mysqli_query($this->con, $sql);
+        return $result;
+    }
+    public function count_Zone_Tutistice(){
+        $nr=0;
+        $this->connect();
+        $sql="SELECT * FROM `zone_turistice`";
+        $result = mysqli_query($this->con, $sql);
+        $nr=mysqli_num_rows($result);
+        return $nr;
+
     }
     public function updateSQL($nume,$descriere,$imagine,$id){
         $this->connect();

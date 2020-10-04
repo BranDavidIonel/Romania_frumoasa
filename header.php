@@ -78,7 +78,7 @@
     </div>
     <ul class="nav navbar-nav ">
       <li> <a href="index.php"> Pagina de start</a></li>
-      <li><a href="topLocuri.php">Top Locuri</a></li>
+      <li><a href="topLocuri.php?p=1">Top Locuri</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <li ><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Admin</a></li>
@@ -97,13 +97,14 @@
 <div class="container-fluid text-center">
     <button id="button1" onclick="buttonShow()" value="true">Ascunde meniu</button>  
 
+    
     <div class="row content">
     <div class="col-sm-2 sidenav">
-      <ul>
-      <li><a id="link_adresa"> Locatie</a></li>
-     
-      <li><a id="link_detalii">Alte informatii </a></li>
-      </ul>
+    <div class="panel panel-default">
+    <div class="panel-heading">Alte detalii</div>
+    <div class="panel-body"><a id="link_adresa"> Locatie</a></div>
+    <div class="panel-body"><a id="link_detalii">Alte legaturi </a></div>
+    </div>
       <!--
       <p><a href="https://www.google.com/maps/place/Valea+lui+Stan/@45.3670551,24.5887041,13.75z/data=!4m5!3m4!1s0x474cd9bca1c557bd:0xe58d0492570c597e!8m2!3d45.3657536!4d24.6210104">
           Valea lui Stan</a>
