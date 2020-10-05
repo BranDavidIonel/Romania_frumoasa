@@ -42,8 +42,12 @@
                     echo '</table>';
                     //prev page
                     $prev_page=$_REQUEST['p']-1;
+                    echo '<nav aria-label="...">
+                         <ul class="pager">';
                     if($_REQUEST['p']>1){
-                    echo '<a href="topLocuri.php?p='.$prev_page.'">Back</a>';
+                     echo '<li class="previous"><a href="topLocuri.php?p='.$prev_page.'"><span aria-hidden="true">&larr;</span>Back</a></li>';
+                    }else{
+                         echo '<li class="previous disabled"><a><span aria-hidden="true">&larr;</span>Back</a></li>';
                     }
                     //all page
                     $count=$select->count_Zone_Tutistice();
@@ -53,19 +57,25 @@
                     
                     $check=$p+$rowsparpage;
                     if($count>$check){
-                    echo '<a href="topLocuri.php?p='.$next_page.'">Next</a>';
+                    echo '<li class="next"><a href="topLocuri.php?p='.$next_page.'"><span aria-hidden="true">&rarr;</span>Next</a></li>';
+                    }else{
+                         echo '<li class="next disabled"><a><span aria-hidden="true">&rarr;</span>Back</a></li>';
                     }
-                    echo '<br>';
+                    echo '</ul>';
+                    echo '<div id="pag_nr">
+                    <ul class="pagination">';
                     $limit=$count/$rowsparpage;
                     $limit=ceil($limit);
                     for($i=1;$i<=$limit;$i++){
                          if($i==$_REQUEST['p']){
-                              echo '<strong>'.$i.'</strong>';
+                              echo '<li class="active"><a>'.$i.' <span class="sr-only">(current)</span></a></li>';
                          }else{
-                         echo '<a href="topLocuri.php?p='.$i.'">'.$i.'</a>'; 
+                         echo '<li><a href="topLocuri.php?p='.$i.'">'.$i.'</a></li>'; 
                          }    
                     }
-                    echo '<br>';
+                    echo '</ul>
+                         </div>
+                         </nav>';
      ?>
 <?php include_once 'footer.php';?>   
    
