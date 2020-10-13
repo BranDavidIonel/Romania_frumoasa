@@ -1,8 +1,9 @@
 <?php include_once 'header.php';?>
 <?php
         require_once 'QuiresSQL.php';
-        session_start();
-        if(isset($_SESSION['admin'])){
+        //session_start();
+        //am o problema cu session
+        //if(isset($_SESSION['admin'])){
             echo 'LOGAT';
             
             echo '<br>';
@@ -60,13 +61,14 @@
                 $result = $editeaza->updateSQL($nume, $descriere, $pozan, $id);
                 // header("Location: http://localhost/Romania_Frumoasa2/admin.php");
             }
-            }
         }
+        
+        /*
         else{
             
-            header("Location: admin.php");
+           // header("Location: admin.php");
                 
-        }
+        }*/
          
         
         ?>

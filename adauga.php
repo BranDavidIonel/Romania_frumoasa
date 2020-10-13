@@ -1,6 +1,6 @@
 <?php include_once 'header.php';?>
 <?php
-        session_start();
+        //session_start();
             echo 'LOGAT';
  
             echo '<table align="center">

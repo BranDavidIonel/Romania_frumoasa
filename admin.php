@@ -6,7 +6,7 @@
         //error_reporting(E_ALL ^ E_WARNING);
         //session_start();
         //&& $_POST["vercode"] == $_SESSION["vercode"]
-        session_start();
+ 
         if(isset($_POST['login']))
         if(($_POST['user']!="")&&($_POST['pass']!="")){
        
@@ -44,7 +44,7 @@
             }
                 
                 
-               header("localhost/Romania_Frumoasa2/admin.php");
+              // header("localhost/Romania_Frumoasa2/admin.php");
             }else {
                 echo "<h1>Parola, username sau codul nu este corect! </h1>";
             }
@@ -52,7 +52,7 @@
               echo "<h1>Nu ati trecut nimic la username sau parolo!</h1>";
           }
       
-            if(isset($_SESSION['admin'])){ 
+           // if(isset($_SESSION['admin'])){ 
        
             echo'<a href="adauga.php">Adauga</a><br>';
             echo 'LOGAT';
@@ -77,7 +77,7 @@
                             </tr>";  
                     }
                     echo'</table>';
-            }
+           // }
         
       
           if(isset($_COOKIE['user'])and isset($_COOKIE['pass']))
