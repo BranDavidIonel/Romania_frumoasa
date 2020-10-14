@@ -1,9 +1,12 @@
-<?php include_once 'header.php';?>
+<?php
+session_start(); 
+include_once 'header.php';
+?>
 <?php
         require_once 'QuiresSQL.php';
-        //session_start();
+        
         //am o problema cu session
-        //if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['admin'])){
             echo 'LOGAT';
             
             echo '<br>';
@@ -28,7 +31,7 @@
                     <input type="text" class="form-control" name="nume" value= "'.$row['nume'].'" />
                
                 <label for="usr">  Descriere: </label>
-                   <textarea class="form-control" rows="5" class="form-control" name="descriere" value="'.$row['descriere'].'" >
+                   <textarea class="form-control" rows="5"  name="descriere" value="'.$row['descriere'].'" >
                    '.$row['descriere'].'
                    </textarea> 
                     <input type="file" name="poza" />
@@ -63,13 +66,15 @@
             }
         }
         
-        /*
+    }
         else{
             
-           // header("Location: admin.php");
+            echo '<script type="text/javascript">
+                    window.location = "login.php"
+               </script>';
                 
-        }*/
+        }
          
         
-        ?>
+?>
 <?php include_once 'footer.php';?>

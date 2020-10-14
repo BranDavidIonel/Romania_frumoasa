@@ -1,58 +1,17 @@
-<?php include_once 'header.php';?>
+<?php 
+session_start();
+include_once 'header.php';?>
 
 <?php
         //am incercat sa scot warning-uri
         //error_reporting(0);
         //error_reporting(E_ALL ^ E_WARNING);
-        //session_start();
+        
         //&& $_POST["vercode"] == $_SESSION["vercode"]
  
-        if(isset($_POST['login']))
-        if(($_POST['user']!="")&&($_POST['pass']!="")){
-       
-        $username=$_POST['user'];
-        $password=$_POST['pass'];
-        $con=mysqli_connect('localhost','root','','romania_frumoasa');
         
-        $query= mysqli_query($con,"SELECT * FROM login WHERE user_name='".$username."'AND password='".$password."'" );
-        $numerows= mysqli_num_rows($query);
-        //trece in $row numele si parola din baza de date
-        $username2="";
-        $password2="";
-        while($row= mysqli_fetch_assoc($query)){ 
-                $username2=$row['user_name'];
-                $password2=$row['password'];
-            }
-         
-            if($_POST['user']==$username && $_POST['pass']==$password2 /*&& $_POST["vercode"] == $_SESSION["vercode"]*/){ 
-                $_SESSION['user']=$_POST['user']; 
-                $_SESSION['admin']=1;
-                
-           
-                if(!empty($_POST["remember"])){
-                    echo "merge";
-                setcookie("user",$_POST['user'], time()+(10*365*24*60*60));//timpul pt setcookie
-                setcookie("pass",$_POST["pass"], time()+(10*365*24*60*60));
-                
-            }else{
-                if(isset($_COOKIE["user"])){
-                    setcookie("user","");
-                }
-                if(isset($_COOKIE["pass"])){
-                    setcookie("pass","");
-            }
-            }
-                
-                
-              // header("localhost/Romania_Frumoasa2/admin.php");
-            }else {
-                echo "<h1>Parola, username sau codul nu este corect! </h1>";
-            }
-          } else {
-              echo "<h1>Nu ati trecut nimic la username sau parolo!</h1>";
-          }
       
-           // if(isset($_SESSION['admin'])){ 
+         if(isset($_SESSION['admin'])){ 
        
             echo'<a href="adauga.php">Adauga</a><br>';
             echo 'LOGAT';
@@ -77,9 +36,9 @@
                             </tr>";  
                     }
                     echo'</table>';
-           // }
+            }
         
-      
+      /*
           if(isset($_COOKIE['user'])and isset($_COOKIE['pass']))
           {
               $user=$_COOKIE['user'];
@@ -112,7 +71,9 @@ if(isset($_POST['login']))
       //header("location:admin.php") ;
     // echo "nu sa trecut nimica in formular";
     }
-  }
+}
+    */
+  
        
  ?>
 <?php include_once 'footer.php';?>

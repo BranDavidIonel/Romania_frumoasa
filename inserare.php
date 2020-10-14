@@ -1,8 +1,10 @@
-<?php include_once 'header.php' ?>
+<?php 
+session_start();
+include_once 'header.php' ?>
 <?php
  require 'QuiresSQL.php';
  //nu stiu sigur daca este sesiune
-//if(isset($_SESSION['admin'])){
+if(isset($_SESSION['admin'])){
 if(isset($_POST['submit'])){
     $nume = $_POST['nume'];
     print_r($_FILES['imagini']['name']);
@@ -30,10 +32,13 @@ if(isset($_POST['submit'])){
     $strImages=mb_substr($strImages, 0, -1); 
     $inserare->insertSql("zone_turistice", $nume, $descriere, $strImages);
     //header("Location:adauga.php");
+    echo '<script type="text/javascript">
+    window.location = "admin.php"
+    </script>';
 
     echo "este inserat";
 }
-//}
+}
 echo '<a href="admin.php">inapoi</a><br/>';
 ?>
 <?php include_once 'footer.php' ?>

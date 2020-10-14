@@ -11,7 +11,7 @@
                     </tr>
                     <tr>
                     <td>Descriere:</td>
-                    <td><input type="text" name="descriere"  class="form-control" /></td>
+                    <td><textarea type="text"  name="descriere" rows="8" class="form-control" > </textarea></td>
                     </tr>                 
                     <td>Rasfoieste:</td>
                     <td><input type="file" name="imagini[]" class="form-control"  multiple /></td>
