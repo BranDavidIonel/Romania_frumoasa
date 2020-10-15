@@ -1,6 +1,8 @@
 <?php 
 session_start();
-include_once 'header.php';?>
+include_once 'header.php';
+require_once 'QuiresSQL.php';
+?>
 
 <?php
         //am incercat sa scot warning-uri
@@ -13,27 +15,26 @@ include_once 'header.php';?>
       
          if(isset($_SESSION['admin'])){ 
        
-            echo'<a href="adauga.php">Adauga</a><br>';
-            echo 'LOGAT';
-            echo '<a href="logout.php">Logout</a>';
+            echo'<a href="adauga.php" class="btn btn-info btn-lg ">Adauga</a>';
+            echo '<a href="logout.php" class="btn btn-info btn-lg pull-right" >Logout</a>';
      
-            $con=mysqli_connect('localhost','root','','romania_frumoasa');
-                    $sql="SELECT * FROM `zone_turistice`";
-                    $result = mysqli_query($con, $sql) or die(mysqli_error());
-                    echo '<table border="1" width="500px">';
+                    $select=new QuiresSQL();
+            
+                    $result =$select->selectTable("zone_turistice");
+                    echo '<table border="2" class="table table-bordered table-hover"">';
                     while($row = mysqli_fetch_array( $result)){
                         $id=$row['id'];
                         $nume=$row['nume'];
                         $descriere=$row['descriere'];    
                         $img=$row['imagine'];
                         
-                        echo"<tr>
-                                <td>$id</td>
-                                <td>$nume</td>
-                                <td>$descriere</td>
-                                <td><a href='editeaza.php?id=$id'>Editeaza</a></td>
-                                <td><a href='stergere.php?id=$id' onclick=\"return confirm('Esti sigur ca vrei sa stergi?')\";>Stergere</a></td>
-                            </tr>";  
+                        echo '<tr>
+                                <td>'.$id.'</td>
+                                <td>'.$nume.'</td>
+                                <td>'.$descriere.'</td>
+                                <td><a href="editeaza.php?id='.$id.'" class="btn btn-primary">Editeaza</a></td>
+                                <td><a href="stergere.php?id='.$id.'" class="btn btn-danger" onclick=\"return confirm("Esti sigur ca vrei sa stergi?")\";>Stergere</a></td>
+                            </tr>';  
                     }
                     echo'</table>';
             }

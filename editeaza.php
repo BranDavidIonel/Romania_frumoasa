@@ -34,13 +34,20 @@ include_once 'header.php';
                    <textarea class="form-control" rows="5"  name="descriere" value="'.$row['descriere'].'" >
                    '.$row['descriere'].'
                    </textarea> 
-                    <input type="file" name="poza" />
-                    <img src="./imagini/'.$row['imagine'].'" width="250px"/><br />
-                        <input type="hidden" name="pozaveche" value="'.$row['imagine'].'"/>
+                    <input type="file" name="poza[]"  class="form-control"  multiple />
+                    <!-- <img src="./imagini/'.$row['imagine'].'" width="250px"/><br /> -->
+                    
+                    <input type="hidden" name="pozaveche" value="'.$row['imagine'].'"/>
                     <input  type="submit" name="submit" value="Editeaza" />
                   </div>
                 </form><br /><br />
                 ';
+                $imagesSplit= explode(',', $row['imagine']);
+                echo '<table class="table" >';
+                foreach ($imagesSplit as $image) { 
+                     echo '<tr> <td><img src="./imagini/'.$image.'" width="400px" class="img-thumbnail"/></td></tr>';
+                }
+                echo '</table>';
             if(isset($_POST['submit'])){
                 
                 $id = $_GET['id'];
