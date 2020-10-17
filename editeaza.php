@@ -34,11 +34,11 @@ include_once 'header.php';
                    <textarea class="form-control" rows="5"  name="descriere" value="'.$row['descriere'].'" >
                    '.$row['descriere'].'
                    </textarea> 
-                    <input type="file" name="poza[]"  class="form-control"  multiple />
+                    <input type="file" name="poze[]"  class="form-control"  multiple />
                     <!-- <img src="./imagini/'.$row['imagine'].'" width="250px"/><br /> -->
                     
                     <input type="hidden" name="pozaveche" value="'.$row['imagine'].'"/>
-                    <input  type="submit" name="submit" value="Editeaza" />
+                    <input  type="submit" name="submit" value="Editeaza" class="btn btn-primary"  />
                   </div>
                 </form><br /><br />
                 ';
@@ -49,14 +49,44 @@ include_once 'header.php';
                 }
                 echo '</table>';
             if(isset($_POST['submit'])){
-                
+                $bazePath = "imagini/";
                 $id = $_GET['id'];
                 $nume = $_POST['nume'];
                 $descriere = $_POST['descriere'];
-                $poza = $_FILES['poza'];
-                $pozaveche=$_POST['pozaveche'];
-        
+                //$poza = $_FILES['poza'];
+                $images=$_FILES['poze'];
+                $oldImage=$_POST['pozaveche'];
+              
                 
+                $nrImg=count($_FILES['poze']['name']);
+                //concatenez intr-o varibila str toate imaginile separate prin virgula
+                $strImages='';
+                if(!empty($images['name'])){
+
+                     //first I delete old images
+                    $images_split=explode(',', $oldImage);
+                    foreach($images_split as $image){
+                        if($image){
+                        unlink($bazePath.$image);
+                        }
+                    }
+                    for($i=0;$i<$nrImg;$i++){
+                    $path = $bazePath.basename($_FILES['poze']['name'][$i]);
+                    move_uploaded_file($_FILES['poze']['tmp_name'][$i], $path);
+                    //concat
+                    $strImages=$strImages.$_FILES['poze']['name'][$i].',';
+                    }
+                    //sterg ultimul caracter adica ','
+                    $strImages=mb_substr($strImages, 0, -1);
+                    //echo $strImages." == ".$oldImage;
+                   // exit();
+                }else{
+                    $strImages=$oldImage;
+                  
+                }
+
+                /*
+                //pt o singura imagine
                 if(!empty($poza['name'])){
                     $path = "imagini/".basename($poza['name']);
                     move_uploaded_file($path,$poza['tmp_name']);
@@ -64,11 +94,11 @@ include_once 'header.php';
                 }
                 else{
                     $pozan=$pozaveche;
-                }
+                }*/
                 
 //                $con=mysqli_connect('localhost','root','','david_bran');
 //                $sql="UPDATE zone_turistice SET nume='$nume',descriere='$descriere',imagine='$pozan' WHERE id='$id'";
-                $result = $editeaza->updateSQL($nume, $descriere, $pozan, $id);
+                $result = $editeaza->updateSQL($nume, $descriere, $strImages, $id);
                 // header("Location: http://localhost/Romania_Frumoasa2/admin.php");
             }
         }
