@@ -19,7 +19,7 @@
       success:function(response){
         //alert(response);
         var details=JSON.parse(response);
-        //$("#link_adresa").text(details.link_adresa);
+        $("#detalii_nume").text(details.nume);
         $("#link_adresa").attr("href",details.link_adresa);
         $("#link_detalii").attr("href",details.links_info);
       }
@@ -102,6 +102,7 @@
     <div class="col-sm-2 sidenav">
     <div class="panel panel-default">
     <div class="panel-heading">Alte detalii</div>
+    <div class="panel-body"><h3><p id="detalii_nume"> </p></h3></div>
     <div class="panel-body"><a id="link_adresa"> Locatie</a></div>
     <div class="panel-body"><a id="link_detalii">Alte legaturi </a></div>
     </div>

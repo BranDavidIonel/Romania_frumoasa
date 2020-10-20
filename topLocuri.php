@@ -68,7 +68,7 @@
                     $limit=ceil($limit);
                     for($i=1;$i<=$limit;$i++){
                          if($i==$_REQUEST['p']){
-                              echo '<li class="active"><a>'.$i.' <span class="sr-only">(current)</span></a></li>';
+                         echo '<li class="active"><a>'.$i.' <span class="sr-only">(current)</span></a></li>';
                          }else{
                          echo '<li><a href="topLocuri.php?p='.$i.'">'.$i.'</a></li>'; 
                          }    

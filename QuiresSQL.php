@@ -53,7 +53,11 @@ class QuiresSQL {
     }
     public function selectDetalii_id_SQl($idParinte){
         $this->connect();
-        $sql="SELECT * FROM `detalii_zone_turistice` WHERE `idParinte`=$idParinte";
+        $sql="SELECT dt.id,dt.idParinte,dt.link_adresa,dt.links_info,t.nume,t.descriere 
+                FROM `detalii_zone_turistice` AS dT 
+                INNER JOIN `zone_turistice` AS t 
+                ON  dt.idParinte=t.id  
+                WHERE `idParinte`=$idParinte";
         $result = mysqli_query($this->con, $sql);
          $row= mysqli_fetch_object($result);
          return $row;
@@ -96,4 +100,20 @@ class QuiresSQL {
           return $result;
         
     }
+    //pt votari
+    public function selectTop5zone($table){
+        $this->connect();
+        $sql="SELECT t.idparinte, z.nume,z.descriere FROM `$table` as t INNER JOIN zone_turistice as z ON t.idparinte=z.id ORDER BY voturi LIMIT 5";
+        $result = mysqli_query($this->con, $sql) or die(mysqli_error("could not connect"));
+        return $result;
+      
+     }
+
+    //inserari votari
+    public function insertVoturi($table,$vot,$idparinte){
+    $this->connect();
+     $sql = "INSERT INTO `$table` (`idparinte`, `voturi`) VALUES('$idparinte','$vot')";
+      mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
+    }
+
 }
