@@ -11,7 +11,7 @@
   <script src="file1.js"></script>
   <script>
   function showDetails(button){
-    var idParinte=button.id;
+    var idParinte=button.name;
     $.ajax({
       url:"detailsRow.php",
       method:"GET",
@@ -22,6 +22,23 @@
         $("#detalii_nume").text(details.nume);
         $("#link_adresa").attr("href",details.link_adresa);
         $("#link_detalii").attr("href",details.links_info);
+      }
+     
+    });
+  }
+  function addVot(button){
+    var idParinte=button.name;
+                
+    $.ajax({
+      url:"addVoturi.php",
+      method:"GET",
+      data:{"idParinte":idParinte,"vot":1},
+      success:function(response){
+        //alert(response);
+        /*
+        var voturi=JSON.parse(response);
+        $("#voturi").text(voturi.voturi);
+        */
       }
      
     });
@@ -106,13 +123,6 @@
     <div class="panel-body"><a id="link_adresa"> Locatie</a></div>
     <div class="panel-body"><a id="link_detalii">Alte legaturi </a></div>
     </div>
-      <!--
-      <p><a href="https://www.google.com/maps/place/Valea+lui+Stan/@45.3670551,24.5887041,13.75z/data=!4m5!3m4!1s0x474cd9bca1c557bd:0xe58d0492570c597e!8m2!3d45.3657536!4d24.6210104">
-          Valea lui Stan</a>
-        </p>
-      <p><a href="https://www.google.com/maps/place/St%C3%A2na+lui+Burnei/@45.5864073,24.7131155,13.25z/data=!4m13!1m7!3m6!1s0x474cc16b847290dd:0xe31ecf54f655331e!2zTXVuyJtpaSBGxINnxINyYciZ!3b1!8m2!3d45.5833333!4d24.7499999!3m4!1s0x0:0x847296e34796b8f5!8m2!3d45.5868638!4d24.7680438">
-      Stana lui Burnei</a>
-      </p>
-      -->
+    
     </div>
     <div class="col-sm-8 text-left bodyCentral" bg="#0CB742"> 

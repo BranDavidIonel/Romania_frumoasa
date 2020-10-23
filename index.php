@@ -1,4 +1,7 @@
-<?php include_once 'header.php';?>
+<?php 
+include_once 'header.php';
+require_once 'QuiresSQL.php';
+?>
 
         <p>
         Despre abundența resurselor turistice care sălășluiește pe întinderea frumoasei noastre patrii știm încă de la primele ore de Geografia României.

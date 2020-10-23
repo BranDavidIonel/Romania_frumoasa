@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include_once 'header.php';
+require_once 'QuiresSQL.php';
 ?>
 <?php
 

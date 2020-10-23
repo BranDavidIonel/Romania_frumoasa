@@ -33,10 +33,50 @@
                                     ';
                          $imagesSplit= explode(',', $imgs);
                          //echo '<tr>';   <tr><td><img src="./imagini/'.$img.'" width="200px"/></td></tr>
-                         foreach ($imagesSplit as $image) { 
-                              echo '<tr> <td><img src="./imagini/'.$image.'" width="400px"/></td></tr>';
+                         echo '<tr><td>
+                         <div id="myCarousel'.$id.'" class="carousel slide" data-ride="carousel">';
+                         echo '<ol class="carousel-indicators">';
+                       $bool_first=true;
+                       foreach ($imagesSplit as $image) {
+                            if($bool_first){
+                            echo '<li data-target="#myCarousel'.$id.'" data-slide-to="'.$image.'" class="active"></li>';
+                            $bool_first=false;
+                            }else{
+                                 echo '<li data-target="#myCarousel'.$id.'" data-slide-to="'.$image.'"></li>';
+                                // $bool_first=false;
+                            } 
+
                          }
-                         echo '<tr><td><button data-toggle="modal" data-target="#myModal" id="'.$id.'" onclick="showDetails(this)"> Detalii</button> </td></tr>';
+                         echo '</ol>';
+
+                         echo '<div class="carousel-inner">';
+                              
+                         $bool_first=true;
+                         foreach ($imagesSplit as $image) {
+                              if($bool_first){
+                              echo ' <div class="item active">';
+                              $bool_first=false;
+                              }else{
+                                   echo ' <div class="item">';
+                                  // $bool_first=false;
+                              } 
+                              echo '<img src="./imagini/'.$image.'" width="500px"/>';
+                              echo '</div>';
+                         }
+                         echo '</div>';    
+                         echo '<<!-- Left and right controls -->
+                         <a class="left carousel-control" href="#myCarousel'.$id.'" data-slide="prev">
+                           <span class="glyphicon glyphicon-chevron-left"></span>
+                           <span class="sr-only">Previous</span>
+                         </a>
+                         <a class="right carousel-control" href="#myCarousel'.$id.'" data-slide="next">
+                           <span class="glyphicon glyphicon-chevron-right"></span>
+                           <span class="sr-only">Next</span>
+                         </a>
+                       </div>
+                       </td></tr>';
+                         echo '<tr><td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal" name="'.$id.'" onclick="showDetails(this)"> Detalii</button></td></tr>'; 
+                         echo '<tr><td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal" name="'.$id.'" onclick="addVot(this)""><img src="imagini/ptSite/likeFB.png" width="30px"/></button></td></tr>';
                         // echo '  </tr>';
                     }
                     echo '</table>';

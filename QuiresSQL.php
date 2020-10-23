@@ -103,14 +103,32 @@ class QuiresSQL {
     //pt votari
     public function selectTop5zone($table){
         $this->connect();
-        $sql="SELECT t.idparinte, z.nume,z.descriere FROM `$table` as t INNER JOIN zone_turistice as z ON t.idparinte=z.id ORDER BY voturi LIMIT 5";
+        $sql="SELECT t.idparinte, z.nume,z.descriere FROM `$table` as t INNER JOIN zone_turistice as z ON t.idparinte=z.id ORDER BY voturi DESC LIMIT 5";
         $result = mysqli_query($this->con, $sql) or die(mysqli_error("could not connect"));
         return $result;
       
      }
-
+     public function selectNrVoturi($table,$idParinte){
+        $this->connect();
+        $sql="SELECT voturi,idparinte FROM `$table` WHERE idparinte=".$idParinte.'';
+        echo $sql."  ";
+        $result = mysqli_query($this->con, $sql) or die(mysqli_error("could not connect"));
+        $row= mysqli_fetch_array($result);
+        print_r($row['idparinte']); 
+        $nr=$row['idparinte'];
+        if($nr==null){
+            return 0;
+        }else{
+            return $nr;
+        }
+     }
+     public function updateVot($table,$idParinte){
+        $this->connect();
+        $sql="UPDATE `$table` SET voturi=voturi+1 WHERE idparinte=".$idParinte.'';
+        mysqli_query($this->con,$sql) or die (mysqli_error("could not connect!"));
+     }
     //inserari votari
-    public function insertVoturi($table,$vot,$idparinte){
+    public function addVoturi($table,$vot,$idparinte){
     $this->connect();
      $sql = "INSERT INTO `$table` (`idparinte`, `voturi`) VALUES('$idparinte','$vot')";
       mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));

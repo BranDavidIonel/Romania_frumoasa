@@ -16,10 +16,13 @@ $select=new QuiresSQL();
                                  $id=$row['idparinte'];
                                  $nume=$row['nume'];
                                  $descriere=$row['descriere'];
-                                       
-         
+                                 if(strlen($descriere)>200){
+                                 $trimStr=substr($descriere,0,200)."...";
+                                 }else{
+                                   $trimStr=$descriere;
+                                 }
                                  echo'<a class="list-group-item active"> <span class="badge">'.$nr.'</span>'.$nume.'</a>
-                                      <a class="list-group-item">'.$descriere.'</a>
+                                      <a class="list-group-item">'.$trimStr.'</a>
                                       ';
                                 
                              $nr++;
