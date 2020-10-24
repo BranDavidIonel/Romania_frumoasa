@@ -100,6 +100,14 @@ class QuiresSQL {
           return $result;
         
     }
+    public function selectAllImages(){
+        $this->connect();
+        $sql="call SelectAllImages()";
+        $result = mysqli_query($this->con, $sql) or die(mysqli_error("could not connect"));
+        return $result;
+      
+     }
+
     //pt votari
     public function selectTop5zone($table){
         $this->connect();

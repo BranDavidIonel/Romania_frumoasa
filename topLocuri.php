@@ -28,7 +28,7 @@
                         $imgs=$row['imagine'];
 
                         echo'<tr><td style="font-size: 20px;">'.$nume.'</td></tr>
-                             <tr><td style="color: #21a51e;font-size: 15px;text-align: left;">'.$descriere.'</td></tr>
+                             <tr><td style="font-size: 15px;text-align: left;">'.$descriere.'</td></tr>
                            
                                     ';
                          $imagesSplit= explode(',', $imgs);
@@ -43,7 +43,7 @@
                             $bool_first=false;
                             }else{
                                  echo '<li data-target="#myCarousel'.$id.'" data-slide-to="'.$image.'"></li>';
-                                // $bool_first=false;
+                                
                             } 
 
                          }
@@ -54,18 +54,16 @@
                          $bool_first=true;
                          foreach ($imagesSplit as $image) {
                               if($bool_first){
-                              echo ' <div class="item active">';
+                              echo ' <div class="item active" align="center">';
                               $bool_first=false;
                               }else{
-                                   echo ' <div class="item">';
-                                  // $bool_first=false;
+                                   echo ' <div class="item" align="center">';
                               } 
                               echo '<img src="./imagini/'.$image.'" width="500px"/>';
                               echo '</div>';
                          }
                          echo '</div>';    
-                         echo '<<!-- Left and right controls -->
-                         <a class="left carousel-control" href="#myCarousel'.$id.'" data-slide="prev">
+                         echo '<a class="left carousel-control" href="#myCarousel'.$id.'" data-slide="prev">
                            <span class="glyphicon glyphicon-chevron-left"></span>
                            <span class="sr-only">Previous</span>
                          </a>
@@ -77,7 +75,7 @@
                        </td></tr>';
                          echo '<tr><td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal" name="'.$id.'" onclick="showDetails(this)"> Detalii</button></td></tr>'; 
                          echo '<tr><td><button class="btn btn-primary" data-toggle="modal" data-target="#myModal" name="'.$id.'" onclick="addVot(this)""><img src="imagini/ptSite/likeFB.png" width="30px"/></button></td></tr>';
-                        // echo '  </tr>';
+                        
                     }
                     echo '</table>';
                     //prev page

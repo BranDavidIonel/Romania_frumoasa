@@ -44,35 +44,9 @@
     });
   }
   </script>
- <style>
-     .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-      background-color: #C4F8D5;
-    }
-    
-      /* Set height of the grid so .sidenav can be 100% (adjust as needed) 
-    .row.content {height: 15%}
-    */
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 5%;
-      background-color: #C4F8D5;
-      height: 100%;
-    }
-    div.bodyCentral{
-      background-color: #b3d9ff;
-      //opacity: 0.3;
-
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #0CB742;
-      color: black;
-      padding: 15px;
-    }
- </style>
+ 
+  <link rel="stylesheet" href="styleCenter.css">  
+ 
 </head>
 
 <body>

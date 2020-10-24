@@ -1,0 +1,4 @@
+CREATE PROCEDURE SelectAllImages()
+BEGIN
+SELECT id, imagine FROM `zone_turistice` as z INNER JOIN top_zone as t ON z.id=t.idparinte ORDER BY t.voturi DESC;
+END
