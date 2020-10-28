@@ -34,10 +34,17 @@ class QuiresSQL {
         return $this->con;
         
     } 
+    /*
     public function insertSql($table,$nume,$descriere,$imagine){
      $this->connect();
      $sql = "INSERT INTO zone_turistice (`nume`, `descriere`, `imagine`) VALUES('$nume','$descriere',  '$imagine')";
     mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
+    }
+    */
+    public function insertZonaTuristica($nume,$descriere,$imagine,$links_info,$link_locatie){
+        $this->connect();
+        $sql = "call insertDetails ($nume,$descriere,$imagine,$links_info,$link_locatie)";
+       mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
     }
     public function deleteSQl($id){
     $this->connect();
@@ -47,6 +54,13 @@ class QuiresSQL {
     public function select_id_SQl($id){
         $this->connect();
         $sql="SELECT * FROM `zone_turistice` WHERE `id`=$id";
+        $result = mysqli_query($this->con, $sql);
+         $row= mysqli_fetch_array($result);
+         return $row;
+    }
+    public function select_id_zona($id){
+        $this->connect();
+        $sql="call selectZona($id)";
         $result = mysqli_query($this->con, $sql);
          $row= mysqli_fetch_array($result);
          return $row;

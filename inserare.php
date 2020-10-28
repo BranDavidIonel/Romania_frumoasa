@@ -9,6 +9,8 @@ if(isset($_POST['submit'])){
     $nume = $_POST['nume'];
     print_r($_FILES['imagini']['name']);
     $descriere = $_POST['descriere'];
+    $links_info=$_POST['links_info'];
+    $link_locatie=$_POST['link_locatie'];
     $images=$_FILES['imagini'];
     //test
    // print_r($_FILES['imagini']);
@@ -30,7 +32,7 @@ if(isset($_POST['submit'])){
 //    mysqli_query($con, $sql);
 //     
     $strImages=mb_substr($strImages, 0, -1); 
-    $inserare->insertSql("zone_turistice", $nume, $descriere, $strImages);
+    $inserare->insertZonaTuristica($nume,$descriere,$strImages,$links_info,$link_locatie);
     //header("Location:adauga.php");
     echo '<script type="text/javascript">
     window.location = "admin.php"

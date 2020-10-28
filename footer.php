@@ -34,6 +34,12 @@ $select=new QuiresSQL();
  <footer class="container-fluid text-center">
   <p>Made by Bran David</p>
 </footer>
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
 </body>
 
 </html>

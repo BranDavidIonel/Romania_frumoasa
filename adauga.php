@@ -1,4 +1,6 @@
-<?php include_once 'header.php';?>
+<?php include_once 'header.php';
+ require_once 'QuiresSQL.php';
+?>
 <?php
         //session_start();
             echo 'LOGAT';
@@ -12,7 +14,13 @@
                     <tr>
                     <td>Descriere:</td>
                     <td><textarea type="text"  name="descriere" rows="8" class="form-control" > </textarea></td>
-                    </tr>                 
+                    </tr>
+                    <td>Alte link-uri de legatura:</td>
+                    <td><textarea type="text"  name="links_info" rows="2" class="form-control" > </textarea></td>
+                    </tr>
+                    <td>Locatie:</td>
+                    <td><textarea type="text"  name="link_locatie" rows="2" class="form-control" > </textarea></td>
+                    </tr>                     
                     <td>Rasfoieste:</td>
                     <td><input type="file" name="imagini[]" class="form-control"  multiple /></td>
                     </tr>

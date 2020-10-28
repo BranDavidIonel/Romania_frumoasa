@@ -21,7 +21,7 @@ include_once 'header.php';
 //                $con=mysqli_connect('localhost','root','','david_bran');
 //                $sql="SELECT * FROM `zone_turistice` WHERE `id`=$id";
 //                $result = mysqli_query($con, $sql);  <div class="form-group">
-                $row= $editeaza->select_id_SQl($id);
+                $row= $editeaza->select_id_zona($id);
                 
             
             echo '
@@ -33,6 +33,14 @@ include_once 'header.php';
                 <label for="usr">  Descriere: </label>
                    <textarea class="form-control" rows="5"  name="descriere" value="'.$row['descriere'].'" >
                    '.$row['descriere'].'
+                   </textarea>
+                <label for="usr">  Alte link-uri cu alte detalii: </label>
+                   <textarea class="form-control" rows="2"  name="links_info" value="'.$row['links_info'].'" >
+                   '.$row['links_info'].'
+                   </textarea>
+                <label for="usr">  Link locatie: </label>
+                   <textarea class="form-control" rows="2"  name="link_locatie" value="'.$row['link_adresa'].'" >
+                   '.$row['link_adresa'].'
                    </textarea> 
                     <input type="file" name="poze[]"  class="form-control"  multiple />
                     <!-- <img src="./imagini/'.$row['imagine'].'" width="250px"/><br /> -->

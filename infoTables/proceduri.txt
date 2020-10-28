@@ -1,3 +1,22 @@
+CREATE PROCEDURE selectZona(id int)
+BEGIN
+SELECT z.id,z.nume,z.descriere,z.imagine,d.links_info,d.link_adresa 
+FROM zone_turistice as z
+LEFT JOIN detalii_zone_turistice as d
+ON z.id=d.idParinte
+WHERE z.id=id;
+
+END
+CREATE PROCEDURE insertDetails(nume varchar (100),descriere varchar(500),imagine varchar(200), links_info varchar(200),links_adresa varchar(200))
+BEGIN
+DECLARE maxId INT DEFAULT 0;
+INSERT INTO zone_turistice(nume,descriere,imagine) VALUES(nume,descriere,imagine);
+SELECT MAX(id) INTO maxId FROM zone_turistice;
+INSERT INTO detalii_zone_turistice(idParinte, links_info, link_adresa) VALUES(maxId,links_info,links_adresa);
+END
+
+
+//selectie la toate imaginile care sunt
 CREATE PROCEDURE SelectAllImages()
 BEGIN
 SELECT id, imagine FROM `zone_turistice` as z INNER JOIN top_zone as t ON z.id=t.idparinte ORDER BY t.voturi DESC;

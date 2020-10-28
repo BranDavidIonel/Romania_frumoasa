@@ -2,19 +2,25 @@ html,body{
     background-image: url('imagini/ptSite/bgForest.jpg');
     height: 100%;
 }
-.navbar {
+#navbar1 {
     margin-bottom: 0;
     border-radius: 0;
-    background-color: #C4F8D5;
+    
+    background-color: #0af516;
+    color: rgb(0, 0, 0);
   }
   
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) 
   .row.content {height: 15%}
   */
-  /* Set gray background color and 100% height */
+  /* Set gray background color and 100% height 
+  #navbar1{
+    background-color: #0af516;
+    color: rgb(0, 0, 0);
+  }*/
   .sidenav {
     padding-top: 5%;
-    background-color: #C4F8D5;
+    background-color: #c4f8d4;
     height: 10%;
   }
   div.bodyCentral{
@@ -25,7 +31,7 @@ html,body{
  
    color: rgba(1, 19, 1, 0.932);
     height: 100%;
-  //margin: 0 auto -5px ;
+   /*margin: 0 auto -5px ;*/
 
   }
   
