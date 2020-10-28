@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
 ////    $sql="DELETE FROM zone_turistice WHERE id = $id";
 ////    mysqli_query($con,$sql);
     $stergere= new QuiresSQL();
-    $stergere->deleteSQl($id);
+    $stergere->deleteZona($id);
     header("Location:admin.php");
     }
 //}

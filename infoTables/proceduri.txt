@@ -1,3 +1,20 @@
+
+//delete
+CREATE PROCEDURE deleteZona(id int)
+BEGIN
+DELETE FROM zone_turistice WHERE id=id;
+DELETE FROM detalii_zone_turistice WHERE idparinte=id;
+DELETE FROM top_zone WHERE idparinte=id;
+END
+
+//update
+CREATE PROCEDURE updateZona(id int,nume varchar (100),descriere varchar(5000),imagine varchar(2000), links_info varchar(400),link_adresa varchar(200))
+BEGIN
+UPDATE zone_turistice SET nume=nume,descriere=descriere,imagine=imagine WHERE id=id;
+UPDATE detalii_zone_turistice SET links_info=links_info, link_adresa=link_adresa WHERE idparinte=id;
+END
+
+//select pt zona update
 CREATE PROCEDURE selectZona(id int)
 BEGIN
 SELECT z.id,z.nume,z.descriere,z.imagine,d.links_info,d.link_adresa 

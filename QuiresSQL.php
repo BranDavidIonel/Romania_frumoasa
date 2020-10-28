@@ -43,21 +43,28 @@ class QuiresSQL {
     */
     public function insertZonaTuristica($nume,$descriere,$imagine,$links_info,$link_locatie){
         $this->connect();
-        $sql = "call insertDetails ($nume,$descriere,$imagine,$links_info,$link_locatie)";
+        $sql = "call insertDetails ('".$nume."','".$descriere."','".$imagine."','".$links_info."','".$link_locatie."')";
        mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
     }
+    /*
     public function deleteSQl($id){
     $this->connect();
     $sql="DELETE FROM zone_turistice WHERE id = $id";
     mysqli_query($this->con,$sql);
+    }*/
+    public function deleteZona($id){
+        $this->connect();
+        $sql="call deleteZona('".$id."')";
+        mysqli_query($this->con,$sql);
     }
+    /*
     public function select_id_SQl($id){
         $this->connect();
         $sql="SELECT * FROM `zone_turistice` WHERE `id`=$id";
         $result = mysqli_query($this->con, $sql);
          $row= mysqli_fetch_array($result);
          return $row;
-    }
+    }*/
     public function select_id_zona($id){
         $this->connect();
         $sql="call selectZona($id)";
@@ -96,6 +103,12 @@ class QuiresSQL {
     public function updateSQL($nume,$descriere,$imagine,$id){
         $this->connect();
        $sql="UPDATE zone_turistice SET nume='$nume',descriere='$descriere',imagine='$imagine' WHERE id='$id'";
+       $result = mysqli_query($this->con, $sql);
+       return $result;
+    }
+    public function updateZona($id,$nume,$descriere,$imagini,$links_info,$link_locatie){
+        $this->connect();
+       $sql="call updateZona ('".$nume."','".$descriere."','".$imagini."','".$links_info."','".$link_locatie."')";
        $result = mysqli_query($this->con, $sql);
        return $result;
     }
