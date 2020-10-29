@@ -8,7 +8,7 @@ if(isset($_POST['submitCauta'])){
  //require_once 'QuiresSQL.php';
 
                     $select=new QuiresSQL();
-                    $result=$select->searchInTable("zone_turistice",$cauta);
+                    $result=$select->searchInZoneTuristice($cauta);
                     // se selecteaza fiecare linie din tabel
                     while($row = mysqli_fetch_array( $result)){
                         echo'<table class="table table-bordered">';

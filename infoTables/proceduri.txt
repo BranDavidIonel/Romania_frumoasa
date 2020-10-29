@@ -1,3 +1,24 @@
+//select all zone
+CREATE PROCEDURE selectALLZone()
+BEGIN
+SELECT * FROM zone_turistice;
+END
+
+//search
+CREATE PROCEDURE searchInZoneTuristice(denumire varchar(200))
+BEGIN
+SELECT * FROM zone_turistice where nume LIKE CONCAT ('%',denumire,'%');
+END
+
+//top 5 zone turistice
+CREATE PROCEDURE selectTop5Zone()
+BEGIN 
+SELECT t.idparinte, z.nume,z.descriere 
+FROM top_zone as t 
+INNER JOIN zone_turistice as z ON t.idparinte=z.id 
+ORDER BY voturi DESC LIMIT 5;
+
+END
 
 //delete
 CREATE PROCEDURE deleteZona(id int)

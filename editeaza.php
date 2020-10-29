@@ -71,7 +71,12 @@ include_once 'header.php';
                 $nrImg=count($_FILES['poze']['name']);
                 //concatenez intr-o varibila str toate imaginile separate prin virgula
                 $strImages='';
-                if(!empty($images['name'])){
+                
+                echo "images: ".$nrImg.$images["name"][0];
+                print_r($images);
+               // exit();
+                
+                if($images["name"][0]!=""){
 
                      //first I delete old images
                     $images_split=explode(',', $oldImage);
@@ -108,7 +113,7 @@ include_once 'header.php';
                 
 //                $con=mysqli_connect('localhost','root','','david_bran');
 //                $sql="UPDATE zone_turistice SET nume='$nume',descriere='$descriere',imagine='$pozan' WHERE id='$id'";
-                echo $link_locatie."<br>".$links_info;
+              
                 $result = $editeaza->updateZona($id,$nume, $descriere, $strImages,$link_locatie,$links_info);
                // exit();
                 // header("Location: http://localhost/Romania_Frumoasa2/admin.php");

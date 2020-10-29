@@ -20,7 +20,7 @@ include_once 'header.php';
      
                     $select=new QuiresSQL();
             
-                    $result =$select->selectTable("zone_turistice");
+                    $result =$select->selectAllZone();
                     echo '<table border="2" class="table table-bordered table-hover"">';
                     while($row = mysqli_fetch_array( $result)){
                         $id=$row['id'];

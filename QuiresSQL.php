@@ -111,6 +111,12 @@ class QuiresSQL {
        $result = mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
        return $result;
     }
+    public function selectAllZone(){
+        $this->connect();
+        $sql="call selectALLZone()";
+        $result = mysqli_query($this->con, $sql) or die(mysqli_error("could not connect"));
+        return $result;
+    }
     public function selectTable($table){
           $this->connect();
           $sql="SELECT * FROM `$table`";
@@ -118,6 +124,7 @@ class QuiresSQL {
           return $result;
         
     }
+    /*
      public function searchInTable($table,$valSearch){
           $this->connect();
           $sql="SELECT * FROM `$table` where nume LIKE '%$valSearch%'";
@@ -125,7 +132,15 @@ class QuiresSQL {
           $result = mysqli_query($this->con, $sql) or die("could not connect");
           return $result;
         
-    }
+    }*/
+    public function searchInZoneTuristice($valSearch){
+        $this->connect();
+        $sql="call searchInZoneTuristice('".$valSearch."')";
+        //echo $sql;
+        $result = mysqli_query($this->con, $sql) or die("could not connect");
+        return $result;
+      
+  }
     public function selectAllImages(){
         $this->connect();
         $sql="call SelectAllImages()";
@@ -135,9 +150,9 @@ class QuiresSQL {
      }
 
     //pt votari
-    public function selectTop5zone($table){
+    public function selectTop5zone(){
         $this->connect();
-        $sql="SELECT t.idparinte, z.nume,z.descriere FROM `$table` as t INNER JOIN zone_turistice as z ON t.idparinte=z.id ORDER BY voturi DESC LIMIT 5";
+        $sql="call selectTop5Zone()";
         $result = mysqli_query($this->con, $sql) or die(mysqli_error("could not connect"));
         return $result;
       
