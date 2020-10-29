@@ -1,3 +1,4 @@
+
 function showDetails(button){
     var idParinte=button.name;
     $.ajax({
@@ -9,7 +10,11 @@ function showDetails(button){
         var details=JSON.parse(response);
         $("#detalii_nume").text(details.nume);
         $("#link_adresa").attr("href",details.link_adresa);
-        $("#link_detalii").attr("href",details.links_info);
+        $("#link_detalii1").attr("href",details.links_info);
+        /*
+        for(i=0;i<3;i++){
+        $("#link_detalii1").attr("href",details.links_info);
+        }*/
       }
      
     });

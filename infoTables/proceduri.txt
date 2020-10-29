@@ -8,10 +8,10 @@ DELETE FROM top_zone WHERE idparinte=id;
 END
 
 //update
-CREATE PROCEDURE updateZona(id int,nume varchar (100),descriere varchar(5000),imagine varchar(2000), links_info varchar(400),link_adresa varchar(200))
+CREATE PROCEDURE updateZona(id_in int,nume varchar (200),descriere varchar(5000),imagine varchar(2000), links_info varchar(5000),link_adresa varchar(500))
 BEGIN
-UPDATE zone_turistice SET nume=nume,descriere=descriere,imagine=imagine WHERE id=id;
-UPDATE detalii_zone_turistice SET links_info=links_info, link_adresa=link_adresa WHERE idparinte=id;
+UPDATE zone_turistice SET nume=nume,descriere=descriere,imagine=imagine WHERE id=id_in;
+UPDATE detalii_zone_turistice SET links_info=links_info, link_adresa=link_adresa WHERE idparinte=id_in;
 END
 
 //select pt zona update

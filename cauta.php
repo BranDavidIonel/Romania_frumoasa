@@ -5,7 +5,7 @@
 <?php
 if(isset($_POST['submitCauta'])){
  $cauta=$_POST['Cauta'];
- require_once 'QuiresSQL.php';
+ //require_once 'QuiresSQL.php';
 
                     $select=new QuiresSQL();
                     $result=$select->searchInTable("zone_turistice",$cauta);

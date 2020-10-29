@@ -1,6 +1,6 @@
  <?php include_once 'header.php';?>
  <?php
- require_once 'QuiresSQL.php';
+ //require_once 'QuiresSQL.php';
 //                    $con=mysqli_connect('localhost','root','','david_bran');
 //                    $sql="SELECT * FROM `zone_turistice`";
 //                    $result = mysqli_query($con, $sql) or die(mysqli_error());

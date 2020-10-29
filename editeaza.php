@@ -3,7 +3,7 @@ session_start();
 include_once 'header.php';
 ?>
 <?php
-        require_once 'QuiresSQL.php';
+       // require_once 'QuiresSQL.php';
         
         //am o problema cu session
         if(isset($_SESSION['admin'])){
@@ -61,6 +61,8 @@ include_once 'header.php';
                 $id = $_GET['id'];
                 $nume = $_POST['nume'];
                 $descriere = $_POST['descriere'];
+                $link_locatie=$_POST['link_locatie'];
+                $links_info=$_POST['links_info'];
                 //$poza = $_FILES['poza'];
                 $images=$_FILES['poze'];
                 $oldImage=$_POST['pozaveche'];
@@ -106,7 +108,9 @@ include_once 'header.php';
                 
 //                $con=mysqli_connect('localhost','root','','david_bran');
 //                $sql="UPDATE zone_turistice SET nume='$nume',descriere='$descriere',imagine='$pozan' WHERE id='$id'";
-                $result = $editeaza->updateSQL($nume, $descriere, $strImages, $id);
+                echo $link_locatie."<br>".$links_info;
+                $result = $editeaza->updateZona($id,$nume, $descriere, $strImages,$link_locatie,$links_info);
+               // exit();
                 // header("Location: http://localhost/Romania_Frumoasa2/admin.php");
             }
         }

@@ -1,6 +1,5 @@
 <?php
 
-
 class QuiresSQL {
     private $host="";
     private $usernameDB="";
@@ -69,7 +68,7 @@ class QuiresSQL {
         $this->connect();
         $sql="call selectZona($id)";
         $result = mysqli_query($this->con, $sql);
-         $row= mysqli_fetch_array($result);
+         $row= mysqli_fetch_array($result)  or die(mysqli_error("could not connect"));
          return $row;
     }
     public function selectDetalii_id_SQl($idParinte){
@@ -108,8 +107,8 @@ class QuiresSQL {
     }
     public function updateZona($id,$nume,$descriere,$imagini,$links_info,$link_locatie){
         $this->connect();
-       $sql="call updateZona ('".$nume."','".$descriere."','".$imagini."','".$links_info."','".$link_locatie."')";
-       $result = mysqli_query($this->con, $sql);
+       $sql="call updateZona ('".$id."','".$nume."','".$descriere."','".$imagini."','".$links_info."','".$link_locatie."')";
+       $result = mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
        return $result;
     }
     public function selectTable($table){

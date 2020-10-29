@@ -2,7 +2,7 @@
 session_start();
 include_once 'header.php' ?>
 <?php
- require 'QuiresSQL.php';
+ //require 'QuiresSQL.php';
  //nu stiu sigur daca este sesiune
 if(isset($_SESSION['admin'])){
 if(isset($_POST['submit'])){

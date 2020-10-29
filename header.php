@@ -21,7 +21,31 @@
         var details=JSON.parse(response);
         $("#detalii_nume").text(details.nume);
         $("#link_adresa").attr("href",details.link_adresa);
-        $("#link_detalii").attr("href",details.links_info);
+        //$("#link_detalii1").attr("href",details.links_info);
+        var links=details.links_info;
+        var arr_links=links.split(",");
+        //sterg ca sa se reseteze cu noi valori
+        var myobjDel = document.getElementById("detalii_links");
+        if(myobjDel!=null){
+        myobjDel.remove();
+        }
+        var node = document.createElement("div");
+        node.setAttribute("id", "detalii_links");
+        document.getElementById("body_links").appendChild(node);
+        for(i=0;i<arr_links.length;i++){
+          var node = document.createElement("a");
+        var textnode = document.createTextNode("Legatura "+(i+1));
+       
+        node.setAttribute("id", "link_detalii"+i);
+        node.appendChild(textnode);
+        document.getElementById("detalii_links").appendChild(node);
+        //mode.getElementById("link_detalii"+i).className="btn btn-primary";
+        }
+      
+        for(i=0;i<arr_links.length;i++){
+          $("#link_detalii"+i).attr("class","btn btn-primary");
+        $("#link_detalii"+i).attr("href",arr_links[i]);
+        }
       }
      
     });
@@ -44,7 +68,7 @@
     });
   }
   </script>
- 
+  
   <link rel="stylesheet" href="styleCenter.css">  
  
 </head>
@@ -87,7 +111,7 @@
 </nav>
 
 <div class="container-fluid text-center">
-  
+  <?php require_once "QuiresSQL.php"; ?>
 
     
     <div class="row content">
@@ -99,8 +123,16 @@
     </div>
     <div class="panel-heading">Alte detalii</div>
     <div class="panel-body"><h3><p id="detalii_nume"> </p></h3></div>
-    <div class="panel-body"><a id="link_adresa"> Locatie</a></div>
-    <div class="panel-body"><a id="link_detalii">Alte legaturi </a></div>
+    <div class="panel-body"><a id="link_adresa" class="btn btn-primary"> Locatie</a></div>
+    <div class="panel-heading">Alte legaturi</div>
+    <div class="panel-body" id="body_links"></div>
+    <?php 
+    /*
+    for($i=0;$i<3;$i++){
+    echo '<div class="panel-body"><a id="link_detalii'.$i.'">Alte legaturi'.($i+1).' </a></div>';
+    }
+    */
+    ?>
     </div>
     
     </div>

@@ -34,12 +34,35 @@ $select=new QuiresSQL();
  <footer class="container-fluid text-center">
   <p>Made by Bran David</p>
 </footer>
+
 <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+    /*
+    function showDetails(button){
+    var idParinte=button.name;
+    $.ajax({
+      url:"detailsRow.php",
+      method:"GET",
+      data:{"idParinte":idParinte},
+      success:function(response){
+        //alert(response);
+        var details=JSON.parse(response);
+        $("#detalii_nume").text(details.nume);
+        $("#link_adresa").attr("href",details.link_adresa);
+        $("#link_detalii1").attr("href",details.links_info);
+        
+        for(i=0;i<3;i++){
+        $("#link_detalii"+i).attr("href",details.links_info);
+        }
+      }
+     
+    });
+  }*/
 </script>
+
 </body>
 
 </html>
