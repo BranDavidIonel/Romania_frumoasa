@@ -22,12 +22,7 @@ class QuiresSQL {
         $this->nameDb="romania_frumoasa";
         //$this->$rowsperpage=2;
     }
-//    function __construct($host,$username,$password,$nameDb){
-//        $this->host=$host;
-//        $this->usernameDB=$username;
-//        $this->passwordDB=$password; 
-//        $this->nameDb=$nameDb;
-//    }
+
     public function connect(){
         $this->con=mysqli_connect($this->host, $this->usernameDB, $this->passwordDB, $this->nameDb);
         return $this->con;
@@ -45,25 +40,13 @@ class QuiresSQL {
         $sql = "call insertDetails ('".$nume."','".$descriere."','".$imagine."','".$links_info."','".$link_locatie."')";
        mysqli_query($this->con, $sql)  or die(mysqli_error("could not connect"));
     }
-    /*
-    public function deleteSQl($id){
-    $this->connect();
-    $sql="DELETE FROM zone_turistice WHERE id = $id";
-    mysqli_query($this->con,$sql);
-    }*/
+
     public function deleteZona($id){
         $this->connect();
         $sql="call deleteZona('".$id."')";
         mysqli_query($this->con,$sql);
     }
-    /*
-    public function select_id_SQl($id){
-        $this->connect();
-        $sql="SELECT * FROM `zone_turistice` WHERE `id`=$id";
-        $result = mysqli_query($this->con, $sql);
-         $row= mysqli_fetch_array($result);
-         return $row;
-    }*/
+
     public function select_id_zona($id){
         $this->connect();
         $sql="call selectZona($id)";
@@ -74,7 +57,7 @@ class QuiresSQL {
     public function selectDetalii_id_SQl($idParinte){
         $this->connect();
         $sql="SELECT dt.id,dt.idParinte,dt.link_adresa,dt.links_info,t.nume,t.descriere 
-                FROM `detalii_zone_turistice` AS dT 
+                FROM `detalii_zone_turistice` AS dt 
                 INNER JOIN `zone_turistice` AS t 
                 ON  dt.idParinte=t.id  
                 WHERE `idParinte`=$idParinte";
@@ -124,15 +107,7 @@ class QuiresSQL {
           return $result;
         
     }
-    /*
-     public function searchInTable($table,$valSearch){
-          $this->connect();
-          $sql="SELECT * FROM `$table` where nume LIKE '%$valSearch%'";
-          //echo $sql;
-          $result = mysqli_query($this->con, $sql) or die("could not connect");
-          return $result;
-        
-    }*/
+
     public function searchInZoneTuristice($valSearch){
         $this->connect();
         $sql="call searchInZoneTuristice('".$valSearch."')";
