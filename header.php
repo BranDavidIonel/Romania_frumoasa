@@ -112,11 +112,20 @@
 
 <div class="container-fluid text-center">
   <?php require_once "QuiresSQL.php"; ?>
+  <?php
+  $showContentLeftBar = false;
 
-    
+    if (isset($_SERVER['REQUEST_URI'])) {
+      $url = $_SERVER['REQUEST_URI'];
+      if (strpos($url, 'topLocuri.php') !== false) {
+        $showContentLeftBar = true;
+      }
+    }
+  ?>
+  
     <div class="row content">
     <div class="col-sm-2 sidenav">
-    
+    <?php if ($showContentLeftBar): ?>
     <div class="panel panel-default">
     <div class="panel-heading">
     <button class="btn btn-primary" id="button1" onclick="buttonShow()" value="true">Ascunde meniu</button>  
@@ -126,14 +135,8 @@
     <div class="panel-body"><a id="link_adresa" class="btn btn-primary"> Locatie</a></div>
     <div class="panel-heading">Alte legaturi</div>
     <div class="panel-body" id="body_links"></div>
-    <?php 
-    /*
-    for($i=0;$i<3;$i++){
-    echo '<div class="panel-body"><a id="link_detalii'.$i.'">Alte legaturi'.($i+1).' </a></div>';
-    }
-    */
-    ?>
     </div>
-    
+    <?php endif; ?>
+ 
     </div>
     <div class="col-sm-8 text-left bodyCentral" bg="#0CB742"> 
